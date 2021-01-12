@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block page_content %}
+
+<h1> My Images </h1>
+<div class="row">
+ {% for image in images %}
+    <div class="col-md-4">
+        <div class="card mb-2">
+            <img src="{% static image.image %}"  class="card-img-top">
+            <div class="card-body">
+                <h5> {{ image.title }} </h5>
+                <p class="card-text"> {{ image.tag }} </p>
+                <a href="{% url 'detail' img_info.pk %}" class="btn btn-primary"> View Info</a>
+            </div>
+        </div>
+    </div>
+ {% endfor %}
+</div>
+
+{% endblock %}
